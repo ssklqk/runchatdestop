@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .box-container {
+            margin: 0 auto;
+            padding: 10px;
+            width: 100%;
+            border-radius: 15px;
+            overflow: auto;
+            border-radius: 15px !important;
+        }
+
+        .box-container ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sender-name {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 18px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .title {
+            margin-top: 8px;
+            border-radius: 15px !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body style="height: 100%;   background-color: rgba(178, 217, 196, 0.5); padding: 10px;">
+    <div id="box-chat-template" class="chat-popup box-container outer box-chat-template js-loop"
+        style="padding-top :10px; padding-bottom: 10px;"> </div>
+    <script>
+        const data = [
+            {
+                senderName: 'Vũ Thị Hà ',
+                message: '0982827925 Chị bị thâm môi bảm sinh dùng bao lâu thì hết em'
+            },
+            {
+                senderName: 'Lê Hoa ',
+                message: ' 0336665015 tư vấn tặng son không chì cho e với'
+            },
+            {
+                senderName: 'Thu Loan ',
+                message: ' 0372941880 Cho chị 2 hộp tặng 1 tặng thêm son'
+            },
+            {
+                senderName: 'Minh Tran ',
+                message: ' tư vấn e với ạ '
+            },
+            {
+                senderName: 'Thư Nguyễn ',
+                message: ' 0387510788 môi thâm do dùng son'
+            },
+            {
+                senderName: 'Ngát Nguyễn ',
+                message: ' 0869229903 thâm môi lâu năm, môi khô'
+            },
+            {
+                senderName: 'Thanh Nhớ ',
+                message: ' xăm môi dùng được không em ơi'
+            },
+            {
+                senderName: 'Thu Huyền ',
+                message: ' 0367883973 môi mới xăm dùng xong thích quá em ạ'
+            },
+            {
+                senderName: 'Nguyen Phuong ',
+                message: ' 0344330764 chị bị môi khô, thâm lâu năm tư vấn chị với'
+            },
+            {
+                senderName: 'Trần Thị Huyền ',
+                message: ' 0983156089 môi khô, bong tróc dùng bao lâu thì hồng chị ơi'
+            },
+            {
+                senderName: 'Vũ Thị Hà ',
+                message: ' 0824187976 môi thâm'
+            },
+            {
+                senderName: 'Nho Nguyen ',
+                message: ' 0862541321 lấy chị 2 hộp khuyến mãi tặng kem chống nắng nhé  '
+            },
+            {
+                senderName: 'Hoan Nguyễn ',
+                message: '0988427371 khách em dùng rất thích, em lấy cho spa số lượng lớn thì có giá sỉ không chị'
+            },
+            {
+                senderName: 'Lê Phương Thảo ',
+                message: ' Chị tư vấn em với ạ môi thâm nẻ 0982827925  '
+            },
+            { senderName: 'Hà Vũ ', message: ' 0336665015 Cần Tư vấn miễn phí' },
+            {
+                senderName: 'Hai Au ',
+                message: ' 0372941880 Mua 2 tặng 1 em nhé, tặng chị thêm son'
+            },
+            {
+                senderName: 'Le Thi Xoai ',
+                message: ' 0351241470 Lấy cô 2 hộp tặng 1'
+            },
+            {
+                senderName: 'Paniya ',
+                message: ' tu van chi bi tham moi 0398415261'
+            },
+            {
+                senderName: 'Minh Minh ',
+                message: ' 0344330764  thâm môi do dùng son có chì'
+            },
+            {
+                senderName: 'Phạm Hải Yến ',
+                message: ' tư vấn môi thâm 0988451634'
+            },
+            {
+                senderName: 'Nho Hang ',
+                message: '  môi mỏng và nhạy cảm chị tư vấn cho em với  0372098741'
+            },
+            {
+                senderName: 'Hoài An ',
+                message: '  0336665015 Tư vấn miễn phí cho chị'
+            },
+            {
+                senderName: 'Trần Thị Huyền ',
+                message: ' 0983156089 tư vấn cho chị  với em'
+            },
+            {
+                senderName: 'Hoan ',
+                message: ' 0988427371 Cô bị môi khô, hay nứt nẻ  tư vấn cô'
+            },
+            {
+                senderName: 'Ngát Nguyễn ',
+                message: ' 0869229903 Tư vấn miễn phí'
+            },
+            {
+                senderName: 'Thư Nguyễn ',
+                message: ' 0387510788  Tư Vấn Miễn Phí cho em'
+            }
+        ]
+        var  size = 7;
+        window.onload = () => {
+            size = window.screen.width  < 700 ? 6 : 7;
+            loadMessage(size);
+            loading();
+        }
+
+        const returnView = (number) => {
+            let messageTemplate = ''
+            const customData = data;
+            customData.slice(0, number).map((e, i) =>
+                messageTemplate += `<div id="div${i}" class="title">
+                                <a href="#" id="${i}" class="next sender-name text-dark">${e.senderName} :</a>
+                                <span>${e.message}</span>
+                            </div>`
+            )
+            return messageTemplate;
+        }
+        const loadMessage = (slice) => {
+            document.getElementById("box-chat-template").innerHTML = returnView(slice);
+        }
+
+        const loading = () => {
+            let count = 0;
+            let next = size;
+            let isFirstime = true;
+            setInterval(() => {
+                const newMessage = `<div id="div${next}" class="title">
+                            <a href="#" id="${next}" class="next sender-name text-dark">${data[next].senderName} :</a>
+                            <span>${data[next].message}</span>
+                            </div>`
+                $("#box-chat-template").append(newMessage)
+                let nextHeight = 0;
+                nextHeight = $(`#div${next}`).height();
+                $('html,body').animate({ scrollTop: nextHeight }, {
+                    duration: 1000
+                });
+                $(`#div${count}`).hide('slow', () => {
+                    $(`#div${count}`).remove();
+                    count++;
+                    next++;
+                    if (next === data.length) {
+                        next = 0;
+                    }
+                    if (count === data.length) {
+                        count = 0;
+                    }
+                })
+                clearInterval();
+            }, 2000)
+        }
+    </script>
+</body>
+
+</html>
