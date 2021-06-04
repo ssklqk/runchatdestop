@@ -1,0 +1,47 @@
+@@ -32,7 +32,7 @@
+        }
+
+        .title {
+            margin-top : 8px;
+            margin-top: 8px;
+            border-radius: 15px !important;
+        }
+    </style>
+@@ -160,9 +160,11 @@
+                message: ' 0387510788  Tư Vấn Miễn Phí cho em'
+            }
+        ]
+        const size = 7;
+        var  size = 7;
+        window.onload = () => {
+                return loadMessage(size)
+            size = window.screen.width  < 700 ? 6 : 7;
+            loadMessage(size);
+            loading();
+        }
+
+        const returnView = (number) => {
+@@ -189,9 +191,9 @@
+                            <a href="#" id="${next}" class="next sender-name text-dark">${data[next].senderName} :</a>
+                            <span>${data[next].message}</span>
+                            </div>`
+                    $("#box-chat-template").append(newMessage)
+                $("#box-chat-template").append(newMessage)
+                let nextHeight = 0;
+                    nextHeight = $(`#div${next}`).height();
+                nextHeight = $(`#div${next}`).height();
+                $('html,body').animate({ scrollTop: nextHeight }, {
+                    duration: 1000
+                });
+@@ -205,12 +207,10 @@
+                    if (count === data.length) {
+                        count = 0;
+                    }
+
+                })
+                clearInterval();
+            }, 2000)
+        }
+        loading()
+    </script>
+</body>
